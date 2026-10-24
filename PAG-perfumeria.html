@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Scent_Perfums | Perfumería de alta gama</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>tailwind.config={theme:{extend:{colors:{gold:{200:'#F1DE9A',300:'#E8C96A',400:'#DDB84A',500:'#D4AF37',600:'#AA820A',700:'#6E5410'},ink:{950:'#08080A',900:'#0E0E11',800:'#15151A',700:'#1E1E25',600:'#2A2A33'}},fontFamily:{title:['Cinzel','Georgia','serif'],sans:['Plus Jakarta Sans','system-ui','sans-serif']}}}}</script>
+<style>
+:root{box-sizing:border-box;color-scheme:dark;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:90px;height:100%}
+body{background:#08080A;color:#E7E4DA;font-family:'Plus Jakarta Sans',system-ui,sans-serif;overflow-x:hidden;min-height:100%}
+.gold-text{background:linear-gradient(120deg,#F6E7A8,#D4AF37 55%,#AA820A);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.card{background:linear-gradient(160deg,#17171d,#0e0e11);border:1px solid rgba(212,175,55,.18);border-radius:18px;transition:transform .2s ease,box-shadow .2s ease}
+.card:hover{border-color:rgba(212,175,55,.35);box-shadow:0 10px 30px -10px rgba(0,0,0,0.7)}
+.btn{background:linear-gradient(120deg,#E8C96A,#D4AF37 50%,#AA820A);color:#111;font-weight:700;border-radius:12px;transition:filter .2s,transform .15s}
+.btn:hover{filter:brightness(1.12)}.btn:active{transform:scale(.97)}
+.chip{border:1px solid rgba(212,175,55,.3);border-radius:999px;padding:.4rem .9rem;font-size:.75rem;font-weight:600;color:#cfcab8;transition:.2s;cursor:pointer;background:#111115;user-select:none}
+.chip:hover{border-color:#D4AF37;color:#fff}
+.chip.on{background:#D4AF37;color:#111;border-color:#D4AF37}
+.size{border:1px solid #2A2A33;border-radius:10px;padding:.35rem .3rem;font-size:.72rem;font-weight:600;text-align:center;cursor:pointer;color:#bdb8a6;background:#0e0e11;transition:.2s}
+.size:hover{border-color:#D4AF37}
+.size.on{border-color:#D4AF37;color:#111;background:#D4AF37;box-shadow:0 0 10px rgba(212,175,55,0.4)}
+.rail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}.rail>*{scroll-snap-align:start;flex:0 0 auto}
+.tick{display:flex;width:max-content;animation:tick 38s linear infinite}
+@keyframes tick{to{transform:translateX(-50%)}}
+@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.fl{animation:fl 3.4s ease-in-out infinite}
+.drawer{transition:transform .3s ease}
+.bg-grain{background:radial-gradient(ellipse at 20% 0,rgba(212,175,55,.16),transparent 55%),radial-gradient(ellipse at 90% 100%,rgba(170,130,10,.14),transparent 50%)}
+::-webkit-scrollbar{width:7px}::-webkit-scrollbar-thumb{background:#2A2A33;border-radius:4px}
+@media (prefers-reduced-motion:reduce){.tick,.fl{animation:none}html{scroll-behavior:auto}}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #E8C96A;outline-offset:2px}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F6E7A8"/><stop offset=".5" stop-color="#D4AF37"/><stop offset="1" stop-color="#8A6A12"/></linearGradient>
+<g id="wing"><path d="M40 58C28 46 16 50 12 62c8-4 18-2 28 6z"/><path d="M40 69C30 62 20 66 18 78c8-6 14-4 22 2z"/><path d="M40 81c-8-4-14 0-14 10 6-4 10-4 14-1z"/></g>
+<g id="mark"><circle cx="60" cy="60" r="57" fill="none" stroke="url(#lg)" stroke-width="2"/><circle cx="60" cy="60" r="53" fill="none" stroke="url(#lg)" stroke-opacity=".35" stroke-width=".6"/><g fill="url(#lg)"><use href="#wing"/><use href="#wing" transform="translate(120 0) scale(-1 1)"/><path d="M52 28h16l3 5-3 5H52l-3-5z"/><rect x="55" y="38" width="10" height="7"/><path d="M45 47h30l9 14-3 30-8 9H47l-8-9-3-30z"/><circle cx="60" cy="21" r="1.4"/><circle cx="55" cy="16" r="1.1"/><circle cx="66" cy="15" r="1.2"/><circle cx="60" cy="10" r=".9"/><circle cx="71" cy="21" r=".9"/><circle cx="49" cy="22" r=".9"/></g><path d="M52 47l-3 52M68 47l3 52M40 66h40" stroke="#08080A" stroke-width="1.3" fill="none"/></g></defs></svg>
+
+<!-- Cinta animada -->
+<div class="bg-ink-900 border-b border-gold-500/20 overflow-hidden text-[11px] text-gold-200 py-2">
+  <div class="tick" id="ticker"></div>
+</div>
+
+<!-- Header -->
+<header class="sticky top-0 z-40 bg-ink-950/90 backdrop-blur border-b border-gold-500/15">
+  <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between gap-3">
+    <a href="#inicio" class="flex items-center gap-2.5" aria-label="Scent_Perfums inicio">
+      <svg viewBox="0 0 120 120" class="w-11 h-11 flex-shrink-0"><use href="#mark"/></svg>
+      <span class="leading-none"><span class="font-title font-black text-lg tracking-[.22em] gold-text block">SCENT</span><span class="text-[9px] tracking-[.5em] text-gray-400">PERFUMS</span></span>
+    </a>
+    <div class="flex items-center gap-1">
+      <button onclick="openModal('sm')" class="p-2.5 rounded-full hover:bg-ink-800 text-gold-300 transition-colors" aria-label="Buscar"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+      <button onclick="toggleCart(true)" class="relative p-2.5 rounded-full hover:bg-ink-800 text-gold-300 transition-colors" aria-label="Carrito"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 7h12l1 13H5zM9 7a3 3 0 0 1 6 0"/></svg><span id="badge" class="absolute top-0 right-0 min-w-[18px] h-[18px] rounded-full bg-gold-500 text-black text-[10px] font-bold flex items-center justify-center">0</span></button>
+      <button onclick="toggleMenu(true)" class="p-2.5 rounded-full hover:bg-ink-800 text-gold-300 transition-colors" aria-label="Menú"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<!-- Menú pantalla completa -->
+<div id="menu" class="fixed inset-0 z-50 bg-ink-950/98 hidden flex-col items-center justify-center bg-grain" style="background-color:#08080Af2">
+  <button onclick="toggleMenu(false)" class="absolute top-5 right-5 text-3xl text-gray-400 hover:text-white" aria-label="Cerrar">×</button>
+  <nav class="flex flex-col items-center gap-5 font-title text-2xl tracking-widest text-center">
+    <a href="#inicio" onclick="toggleMenu(false)" class="hover:text-gold-300 transition-colors">Inicio</a>
+    <a href="#calidades" onclick="toggleMenu(false)" class="hover:text-gold-300 transition-colors">Calidades</a>
+    <a href="#combos" onclick="toggleMenu(false)" class="hover:text-gold-300 transition-colors">Combos</a>
+    <a href="#catalogo" onclick="toggleMenu(false)" class="gold-text">Catálogo Perfumes</a>
+    <a href="#recomendador" onclick="toggleMenu(false)" class="hover:text-gold-300 transition-colors">Asesor Virtual</a>
+    <a href="#contacto" onclick="toggleMenu(false)" class="hover:text-gold-300 transition-colors">Contacto WhatsApp</a>
+  </nav>
+  <p class="absolute bottom-8 text-xs text-gray-500">SCENT_PERFUMS · Oler bien es para todos</p>
+</div>
+
+<main id="inicio">
+<!-- Hero carrusel -->
+<section class="max-w-7xl mx-auto px-4 pt-5">
+  <div class="relative overflow-hidden rounded-3xl border border-gold-500/25 bg-ink-900 min-h-[300px] sm:min-h-[360px] flex items-center">
+    <div id="hero" class="w-full flex transition-transform duration-700 ease-out"></div>
+    <div id="dots" class="absolute bottom-3 left-0 right-0 flex justify-center gap-2 z-10"></div>
+  </div>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-4" id="trust"></div>
+</section>
+
+<!-- Calidades -->
+<section id="calidades" class="max-w-7xl mx-auto px-4 pt-14">
+  <div class="text-center max-w-2xl mx-auto mb-8"><h2 class="font-title text-3xl font-bold gold-text">Nuestras 3 líneas de producto</h2><p class="text-sm text-gray-400 mt-2">Elige la opción que se ajuste a tu presupuesto y a lo que esperas de un perfume.</p></div>
+  <div class="grid md:grid-cols-3 gap-5" id="cal-grid"></div>
+</section>
+
+<!-- Destacados -->
+<section class="max-w-7xl mx-auto px-4 pt-14">
+  <div class="flex items-end justify-between mb-4">
+    <div>
+      <p class="text-xs text-gold-400 font-semibold tracking-wider uppercase">Lo más vendido</p>
+      <h2 class="font-title text-2xl font-bold gold-text">Destacados</h2>
+    </div>
+    <a href="#catalogo" class="text-xs text-gold-300 hover:underline">Ver todos →</a>
+  </div>
+  <div id="rail-best" class="rail"></div>
+</section>
+
+<!-- Catálogo -->
+<section id="catalogo" class="max-w-7xl mx-auto px-4 pt-12">
+  <h2 class="font-title text-3xl font-bold gold-text">Catálogo de Fragancias</h2>
+  <p class="text-sm text-gray-400 mt-1">¿Estás listo para encontrar tu próximo aroma?</p>
+  <div class="mt-4 grid gap-3 sm:grid-cols-[1fr_auto_auto]">
+    <input id="q" oninput="setQ(this.value)" placeholder="Buscar perfumes, notas o marcas (ej. canela, Dior, Lattafa)..." class="w-full bg-ink-800 border border-gold-500/25 rounded-xl px-4 py-3 text-sm placeholder-gray-500 focus:border-gold-400 transition-colors">
+    <select id="sort" onchange="renderCat()" class="bg-ink-800 border border-gold-500/25 rounded-xl px-4 py-3 text-sm text-gray-200">
+      <option value="new">Destacados / Populares</option>
+      <option value="lo">Precio: menor a mayor</option>
+      <option value="hi">Precio: mayor a menor</option>
+    </select>
+    <button onclick="toggleFilters(true)" class="btn px-6 py-3 text-sm flex items-center justify-center gap-2">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 4h18M6 9h12M10 14h4M12 19h0"/></svg>
+      Filtros <span id="fcount" class="hidden bg-black text-gold-300 rounded-full text-[10px] w-5 h-5 items-center justify-center font-bold">0</span>
+    </button>
+  </div>
+  <div id="qtabs" class="flex flex-wrap gap-2 mt-4"></div>
+  <div id="active" class="flex flex-wrap gap-2 mt-3"></div>
+  <p id="rcount" class="text-xs text-gray-500 mt-3"></p>
+  <div id="grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5 mt-4"></div>
+</section>
+
+<!-- Nichos -->
+<section class="max-w-7xl mx-auto px-4 pt-14">
+  <div class="flex items-end justify-between mb-4">
+    <div>
+      <p class="text-xs text-gold-400 font-semibold tracking-wider uppercase">Exclusividad total</p>
+      <h2 class="font-title text-2xl font-bold gold-text">Los mejores nichos</h2>
+    </div>
+    <button class="btn px-4 py-2 text-xs" onclick="quickTipo('Nicho')">Ver todos los nichos</button>
+  </div>
+  <div id="rail-nicho" class="rail"></div>
+</section>
+
+<!-- Combos -->
+<section id="combos" class="max-w-7xl mx-auto px-4 pt-14">
+  <div class="mb-4">
+    <p class="text-xs text-gold-400 font-semibold tracking-wider uppercase">Ahorro inteligente</p>
+    <h2 class="font-title text-2xl font-bold gold-text">Combos exclusivos</h2>
+  </div>
+  <div class="grid md:grid-cols-2 gap-5" id="combo-grid"></div>
+</section>
+
+<!-- Asesor -->
+<section id="recomendador" class="max-w-3xl mx-auto px-4 pt-14">
+  <div class="card p-7 text-center">
+    <h2 class="font-title text-2xl font-bold">¿No sabes cuál perfume elegir?</h2>
+    <p class="text-sm text-gray-400 mt-2">Responde una pregunta y nuestro asesor te recomienda tu fragancia ideal al instante.</p>
+    <p class="text-sm font-semibold text-gold-300 mt-5">¿Para qué ocasión lo necesitas?</p>
+    <div class="flex flex-wrap justify-center gap-2 mt-3" id="quiz"></div>
+    <div id="qres" class="hidden mt-6 p-5 rounded-2xl bg-ink-950 border border-gold-500/40 text-left">
+      <div class="flex items-center gap-2 text-gold-300 text-xs font-semibold tracking-wide uppercase">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        Recomendación personalizada
+      </div>
+      <h3 id="qn" class="font-title text-xl font-bold mt-1 text-white"></h3>
+      <p id="qd" class="text-sm text-gray-300 mt-2 leading-relaxed"></p>
+      <div class="mt-4 flex flex-wrap gap-3 items-center">
+        <button id="qb" class="btn px-6 py-2.5 text-sm flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 7h12l1 13H5zM9 7a3 3 0 0 1 6 0"/></svg>
+          Agregar al carrito
+        </button>
+        <span id="qp" class="text-gold-300 font-title font-bold text-lg"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contacto -->
+<section id="contacto" class="max-w-3xl mx-auto px-4 pt-14 text-center">
+  <p class="text-xs text-gold-300 tracking-widest uppercase font-semibold">CONTACTO DIRECTO</p>
+  <h2 class="font-title text-2xl font-bold mt-2">¿Tienes alguna duda o buscas un perfume específico?</h2>
+  <p class="text-sm text-gray-400 mt-2 max-w-xl mx-auto">Te respondemos en minutos por WhatsApp con catálogo completo, fotos reales y asesoría uno a uno.</p>
+  <a target="_blank" rel="noopener" href="https://wa.me/573000000000?text=Hola%20Scent_Perfums!%20Quisiera%20asesoría%20sobre%20un%20perfume." class="btn inline-flex items-center gap-2 px-8 py-3.5 text-sm mt-5 shadow-lg">
+    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.287.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.087-.179.182-.077.357.101.174.449.741.964 1.2 0.662.589 1.22.77 1.393.857.173.087.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.144.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/></svg>
+    Hablar por WhatsApp
+  </a>
+</section>
+</main>
+
+<!-- Footer -->
+<footer class="mt-16 border-t border-gold-500/20 bg-ink-900 pt-10 pb-24">
+  <div class="max-w-7xl mx-auto px-4 grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-sm">
+    <div>
+      <span class="font-title font-black tracking-[.2em] gold-text text-lg block">SCENT_PERFUMS</span>
+      <p class="italic text-gray-300 mt-2 font-medium">“Oler bien es para todos”</p>
+      <p class="text-gray-500 text-xs mt-2 leading-relaxed">Especialistas en perfumería de alta estela, decants y fragancias virales. Ventas al detal y por mayor en todo Colombia.</p>
+    </div>
+    <div>
+      <h4 class="font-semibold text-gold-300 mb-3">Tienda</h4>
+      <ul class="space-y-2 text-gray-400">
+        <li><a href="#catalogo" class="hover:text-gold-200">Todos los perfumes</a></li>
+        <li><a href="#calidades" class="hover:text-gold-200">Líneas y Calidades</a></li>
+        <li><a href="#combos" class="hover:text-gold-200">Combos exclusivos</a></li>
+        <li><a href="#recomendador" class="hover:text-gold-200">Asesor de fragancias</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-semibold text-gold-300 mb-3">Garantía y Envíos</h4>
+      <ul class="space-y-2 text-gray-400 text-xs">
+        <li>🚚 Envíos asegurados por Interrapidísimo y Servientrega</li>
+        <li>📦 Empaque sellado de alta protección anti-derrames</li>
+        <li>💵 Pago contraentrega sujeto a cobertura</li>
+        <li>🔄 Cambios por satisfacción o novedades de envío</li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-semibold text-gold-300 mb-3">Atención al cliente</h4>
+      <ul class="space-y-2 text-gray-400">
+        <li>📱 WhatsApp: +57 300 000 0000</li>
+        <li>📍 Envíos a todo Colombia</li>
+        <li>💳 Nequi · Bancolombia · Daviplata · Contraentrega</li>
+        <li>⏰ Lunes a Sábado: 8am - 8pm</li>
+      </ul>
+    </div>
+  </div>
+  <p class="text-center text-xs text-gray-600 mt-10">No es moda. Es Scent. © 2026 Scent_Perfums. Todos los derechos reservados.</p>
+</footer>
+
+<!-- Mascota Scenty -->
+<div class="fixed right-4 z-30" style="bottom:calc(16px + env(safe-area-inset-bottom,0px))">
+  <div id="bot" class="hidden card w-72 p-4 mb-3 shadow-2xl bg-ink-950 border border-gold-500/40">
+    <div class="flex justify-between items-center">
+      <div class="flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+        <b class="text-sm gold-text">Scenty - Tu Asesor</b>
+      </div>
+      <button onclick="toggleBot()" class="text-gray-400 hover:text-white text-lg font-bold" aria-label="Cerrar">×</button>
+    </div>
+    <p class="mt-3 text-xs bg-ink-800 rounded-xl p-3 text-gray-300 leading-relaxed">
+      ¿Qué buscas hoy, frencito? Te ayudo a elegir tu fragancia según tu gusto, clima o presupuesto.
+    </p>
+    <a href="#recomendador" onclick="toggleBot()" class="mt-2.5 block text-xs border border-gold-500/30 rounded-xl px-3 py-2 text-center text-gold-300 hover:bg-gold-500/10">
+      🎯 Hacer test rápido de aroma
+    </a>
+    <button onclick="toggleBot();toggleCart(true)" class="mt-2 w-full text-left text-xs border border-gold-500/30 rounded-xl px-3 py-2 flex justify-between items-center hover:bg-gold-500/10">
+      <span>Mi carrito actual</span>
+      <b id="botc" class="text-gold-300 font-bold bg-ink-900 px-2 py-0.5 rounded-full">0</b>
+    </button>
+    <a target="_blank" rel="noopener" href="https://wa.me/573000000000?text=Hola%20Scent_Perfums!%20Vengo%20desde%20la%20página%20y%20quiero%20asesoría." class="mt-2 block text-xs btn text-center py-2">
+      Hablar con asesor humano
+    </a>
+  </div>
+  <button onclick="toggleBot()" class="fl block ml-auto w-16 h-16 rounded-full p-0.5 btn shadow-2xl focus:outline-none" aria-label="Abrir asistente Scenty">
+    <span class="w-full h-full rounded-full bg-ink-900 flex items-center justify-center">
+      <svg viewBox="0 0 100 100" class="w-11 h-11"><path d="M14 46c-10-8-14 6 0 14-8 2-4 12 8 6zM86 46c10-8 14 6 0 14 8 2 4 12-8 6z" fill="#D4AF37"/><path d="M30 36h40l5 20-10 26H35L25 56z" fill="#D4AF37"/><rect x="40" y="20" width="20" height="12" rx="3" fill="#F1DE9A"/><circle cx="42" cy="55" r="3.5" fill="#08080A"/><circle cx="58" cy="55" r="3.5" fill="#08080A"/><path d="M43 65q7 7 14 0" stroke="#08080A" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+    </span>
+  </button>
+</div>
+
+<!-- Overlay -->
+<div id="ov" class="fixed inset-0 bg-black/75 backdrop-blur-sm z-[45] hidden" onclick="closeAll()"></div>
+
+<!-- Filtros Drawer -->
+<aside id="fil" class="drawer fixed top-0 left-0 h-full w-full sm:w-[420px] bg-ink-900 border-r border-gold-500/25 z-50 -translate-x-full flex flex-col" aria-label="Filtros">
+  <div class="p-4 border-b border-ink-700 flex justify-between items-center">
+    <h3 class="font-title text-lg gold-text font-bold">Filtros de Búsqueda</h3>
+    <button onclick="closeAll()" class="text-2xl text-gray-400 hover:text-white" aria-label="Cerrar">×</button>
+  </div>
+  <div id="fbody" class="flex-1 overflow-y-auto p-4 space-y-6"></div>
+  <div class="p-4 border-t border-ink-700 flex gap-3">
+    <button onclick="clearF()" class="flex-1 border border-gold-500/30 rounded-xl py-3 text-sm text-gray-300 hover:bg-ink-800">Limpiar todos</button>
+    <button onclick="closeAll()" class="btn flex-[2] py-3 text-sm font-bold">Ver resultados</button>
+  </div>
+</aside>
+
+<!-- Carrito Drawer -->
+<aside id="cart" class="drawer fixed top-0 right-0 h-full w-full sm:w-[420px] bg-ink-900 border-l border-gold-500/25 z-50 translate-x-full flex flex-col" aria-label="Carrito">
+  <div class="p-4 border-b border-ink-700 flex justify-between items-center">
+    <div class="flex items-center gap-2">
+      <svg class="w-5 h-5 text-gold-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 7h12l1 13H5zM9 7a3 3 0 0 1 6 0"/></svg>
+      <h3 class="font-title text-lg gold-text font-bold">Tu Carrito</h3>
+    </div>
+    <button onclick="closeAll()" class="text-2xl text-gray-400 hover:text-white" aria-label="Cerrar">×</button>
+  </div>
+  <div class="px-4 pt-3 pb-2 bg-ink-950/60 border-b border-ink-800">
+    <p id="goal" class="text-xs text-gray-300"></p>
+    <div class="h-2 rounded-full bg-ink-700 mt-2 overflow-hidden">
+      <div id="bar" class="h-full bg-gradient-to-r from-gold-400 to-amber-500 rounded-full transition-all duration-500" style="width:0"></div>
+    </div>
+  </div>
+  <div id="items" class="flex-1 overflow-y-auto p-4 space-y-3"></div>
+  <div class="p-4 border-t border-ink-700 space-y-3 bg-ink-950/90">
+    <div class="flex justify-between items-center">
+      <span class="text-gray-400 text-sm">Subtotal estimado:</span>
+      <b id="tot" class="text-gold-300 text-xl font-title">$0</b>
+    </div>
+    <p class="text-[11px] text-gray-400 leading-tight">
+      Al presionar el botón se abrirá WhatsApp con el resumen de tu orden listo para coordinar método de pago (Nequi, Bancolombia o Contraentrega) y despacho.
+    </p>
+    <button onclick="checkout()" class="btn w-full py-3.5 text-sm flex items-center justify-center gap-2 shadow-xl">
+      <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.287.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.087-.179.182-.077.357.101.174.449.741.964 1.2 0.662.589 1.22.77 1.393.857.173.087.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.144.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/></svg>
+      Ir a pagar por WhatsApp
+    </button>
+  </div>
+</aside>
+
+<!-- Modal de Búsqueda Rápida -->
+<div id="sm" class="fixed inset-0 z-50 hidden items-start justify-center pt-16 px-4" style="background:#000000b3;backdrop-filter:blur(4px)">
+  <div class="card w-full max-w-xl p-5 relative shadow-2xl bg-ink-950">
+    <button onclick="closeAll()" class="absolute top-4 right-4 text-2xl text-gray-400 hover:text-white" aria-label="Cerrar">×</button>
+    <h3 class="font-title text-lg gold-text mb-2">Búsqueda rápida</h3>
+    <input id="mq" oninput="modalSearch()" placeholder="Buscar por perfume, marca o aroma..." class="w-full bg-ink-900 border border-gold-500/30 rounded-xl p-3 text-sm focus:border-gold-400 text-white placeholder-gray-500">
+    <div id="mres" class="mt-4 max-h-72 overflow-y-auto space-y-2"></div>
+  </div>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const fmt = n => '$' + Number(n).toLocaleString('es-CO');
+
+const TIPOS = ['Árabe', 'Diseñador', 'Nicho'];
+const GENS = ['Masculino', 'Femenino', 'Unisex'];
+const CALS = ['Original', '1:1', 'Preparado'];
+const MARCAS = [
+  'Afnan','Al Haramain','Ariana Grande','Armaf','Azzaro','Burberry','Carolina Herrera',
+  'Chanel','Dior','Dolce & Gabbana','Essential Parfums','Etat Libre d’Orange','French Avenue',
+  'Giardini di Toscana','Giorgio Armani','Givenchy','Goldfield & Banks','Guerlain','Hermès',
+  'Issey Miyake','Jean Paul Gaultier','Jo Milano Paris','KAJAL','Lancôme','Lattafa','Loewe',
+  'Lorenzo Pazzaglia','Maison Margiela','Mancera','Matiere Premiere','Mercedes-Benz','Montale',
+  'New Notes','Orientica','Paco Rabanne','Parfums de Marly','Prada','Rasasi','Rayhaan',
+  'Salvatore Ferragamo','Valentino','Versace','Viktor & Rolf','Xerjoff','Yves Saint Laurent'
+];
+const CATS = [
+  'Ambiente Frío','Calor / Tropical','Citas','Colegio / Universidad','Elegante','Fiesta',
+  'Fresco / Limpio','Gran Proyección','Intenso','Juvenil','Larga Duración','Nocturno',
+  'Oficina / Trabajo','Salidas Casuales','Sexy','Suave','Tiempo limitado','Uso Diario',
+  'Vacaciones / Playa','Versátil'
+];
+
+const S = (a,b,c,d) => [[5,a],[10,b],[30,c],[100,d]];
+
+const P = [
+  [1,'Khamrah','Lattafa','Árabe','Unisex',['Ambiente Frío','Citas','Larga Duración','Gran Proyección','Nocturno'],S(14000,25000,60000,175000),'#8a4b1c','#d9a05b','Canela, dátiles, praliné y vainilla','Original'],
+  [2,'Hawas for Him','Rasasi','Árabe','Masculino',['Calor / Tropical','Fresco / Limpio','Vacaciones / Playa','Gran Proyección','Uso Diario'],S(15000,27000,65000,195000),'#1c4f7a','#7fc4e8','Manzana, canela, notas marinas y ciruela','Original'],
+  [3,'Club de Nuit Intense Man','Armaf','Árabe','Masculino',['Fiesta','Intenso','Larga Duración','Gran Proyección'],S(14000,26000,62000,185000),'#2b2b2f','#c9c4b4','Limón cítrico, piña ahumada, abedul y almizcle','Original'],
+  [4,'Yara','Lattafa','Árabe','Femenino',['Suave','Salidas Casuales','Juvenil','Colegio / Universidad','Uso Diario'],S(12000,22000,52000,150000),'#c46f8d','#f2c1d1','Orquídea, mandarina, heliotropo y vainilla golosa','Original'],
+  [5,'Sauvage Elixir','Dior','Diseñador','Masculino',['Elegante','Intenso','Larga Duración','Ambiente Frío','Citas'],S(18000,33000,80000,240000),'#1d2a44','#8aa0c8','Canela, nuez moscada, lavanda nocturna y regaliz','1:1'],
+  [6,'Good Girl Velvet','Carolina Herrera','Diseñador','Femenino',['Sexy','Citas','Fiesta','Nocturno','Tiempo limitado'],S(16000,29000,70000,210000),'#5b1a2e','#d98aa3','Almendra dulce, café, jazmín sambac y cacao fino','1:1'],
+  [7,'Y Eau de Parfum','Yves Saint Laurent','Diseñador','Masculino',['Oficina / Trabajo','Fresco / Limpio','Versátil','Uso Diario','Elegante'],[[30,25000],[60,40000],[100,55000]],'#12384d','#7ab8d1','Manzana crujiente, jengibre, salvia y haba tonka','Preparado'],
+  [8,'Baccarat Rouge 540','Maison Margiela','Nicho','Unisex',['Elegante','Larga Duración','Gran Proyección','Sexy','Citas','Tiempo limitado'],[[30,28000],[60,45000],[100,60000]],'#b0603f','#f0c3a2','Azafrán luminoso, jazmín, cedro y ámbar gris cristalino','Preparado'],
+  [9,'Naxos','Xerjoff','Nicho','Masculino',['Ambiente Frío','Elegante','Larga Duración','Intenso'],[[100,420000]],'#6b4a12','#e6c36a','Miel dorada, hojas de tabaco, vainilla y bergamota','Original'],
+  [10,'Layton','Parfums de Marly','Nicho','Unisex',['Ambiente Frío','Elegante','Gran Proyección','Nocturno','Fiesta'],[[100,380000]],'#3a1d4d','#b88ad6','Manzana acaramelada, cardamomo, lavanda y maderas nobles','Original'],
+  [11,'Aoud Vanille','Mancera','Nicho','Unisex',['Intenso','Nocturno','Larga Duración','Ambiente Frío','Sexy'],[[100,330000]],'#4a2412','#c98856','Oud místico, vainilla de Madagascar, canela y pimienta','Original'],
+  [12,'Le Male Elixir','Jean Paul Gaultier','Diseñador','Masculino',['Fiesta','Citas','Sexy','Larga Duración'],S(18000,33000,80000,235000),'#0f2a36','#6db4c9','Menta fresca, lavanda seductora, miel y benzoína','Original'],
+  [13,'Libre','Yves Saint Laurent','Diseñador','Femenino',['Oficina / Trabajo','Elegante','Versátil','Uso Diario'],S(17000,31000,76000,225000),'#7a5a12','#f0d27a','Lavanda floral francesa, azahar marroquí y vainilla','Original'],
+  [14,'Eclaire','Lattafa','Árabe','Femenino',['Citas','Suave','Sexy','Salidas Casuales'],S(13000,24000,56000,160000),'#8a4a60','#f0c4a8','Caramelo toffee, crema de leche, praliné y vainilla','Original'],
+  [15,'Asad','Lattafa','Árabe','Masculino',['Nocturno','Intenso','Fiesta','Gran Proyección'],S(12000,22000,52000,145000),'#2a2018','#b79a63','Pimienta negra, piña madura, tabaco rubio y café','Original']
+].map(a => ({
+  id: a[0],
+  name: a[1],
+  brand: a[2],
+  tipo: a[3],
+  gen: a[4],
+  cats: a[5],
+  sizes: a[6].filter(s => s[1] > 0),
+  c1: a[7],
+  c2: a[8],
+  notes: a[9],
+  q: a[10]
+}));
+
+// Estado de la app
+const F = { tipo: new Set(), marca: new Set(), gen: new Set(), cat: new Set(), cal: new Set() };
+let Q = '', sel = {}, cart = [], heroI = 0, gid = 0;
+const GOAL = 250000;
+
+// Cargar carrito local si existe
+try {
+  const savedCart = localStorage.getItem('scent_cart');
+  if (savedCart) cart = JSON.parse(savedCart);
+} catch (e) {}
+
+function saveCart() {
+  try { localStorage.setItem('scent_cart', JSON.stringify(cart)); } catch (e) {}
+}
+
+// Ilustración de botella SVG
+function bottle(c1, c2, v) {
+  const g = 'g' + (gid++);
+  const body = [
+    'M30 48h40a6 6 0 0 1 6 6v52a8 8 0 0 1-8 8H32a8 8 0 0 1-8-8V54a6 6 0 0 1 6-6z',
+    'M34 48h32l10 18v40a8 8 0 0 1-8 8H32a8 8 0 0 1-8-8V66z',
+    'M50 48c22 0 28 16 28 36s-10 30-28 30-28-10-28-30 6-36 28-36z'
+  ][v % 3];
+  return `
+    <svg viewBox="0 0 100 130" class="w-28 h-36 max-w-full drop-shadow-lg">
+      <defs>
+        <linearGradient id="${g}" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="${c2}"/>
+          <stop offset="1" stop-color="${c1}"/>
+        </linearGradient>
+      </defs>
+      <ellipse cx="50" cy="122" rx="34" ry="5" fill="#000" opacity=".5"/>
+      <rect x="40" y="22" width="20" height="14" rx="3" fill="#D4AF37"/>
+      <rect x="45" y="36" width="10" height="12" fill="#8A6A12"/>
+      <path d="${body}" fill="url(#${g})" stroke="#F1DE9A" stroke-opacity=".35"/>
+      <path d="M34 60v40" stroke="#fff" stroke-opacity=".25" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+  `;
+}
+
+// Renderizado de tarjeta de perfume
+function card(p, w) {
+  const i = sel[p.id] !== undefined ? sel[p.id] : (p.sizes.length - 1);
+  const s = p.sizes[i] || p.sizes[0];
+  const sizeBtns = p.sizes.map((sz, idx) => `
+    <button type="button" onclick="setSize(${p.id}, ${idx})" class="size ${idx === i ? 'on' : ''}">${sz[0]}ml</button>
+  `).join('');
+
+  return `
+  <article class="card overflow-hidden flex flex-col justify-between ${w ? 'w-[230px]' : ''}">
+    <div>
+      <div class="relative aspect-[4/4.3] bg-gradient-to-b from-ink-700 to-ink-900 p-4 flex items-center justify-center">
+        ${bottle(p.c1, p.c2, p.id)}
+        <span class="absolute top-2 left-2 text-[10px] font-semibold bg-black/80 border border-gold-500/30 text-gold-200 rounded-full px-2 py-0.5">${p.q}</span>
+        <span class="absolute top-2 right-2 text-[10px] bg-black/80 text-gray-300 rounded-full px-2 py-0.5">${p.gen}</span>
+      </div>
+      <div class="p-3.5">
+        <p class="text-[10px] uppercase tracking-wider text-gold-400 font-medium">${p.brand}</p>
+        <h3 class="font-title font-bold text-sm sm:text-base leading-tight mt-0.5 text-white truncate" title="${p.name}">${p.name}</h3>
+        <p class="text-[11px] text-gray-400 mt-1 line-clamp-1" title="${p.notes}">${p.notes}</p>
+        <div class="mt-2.5">
+          <span class="text-[10px] text-gray-500 font-medium">Tamaño disponible:</span>
+          <div class="grid grid-cols-${Math.min(p.sizes.length, 4)} gap-1 mt-1">
+            ${sizeBtns}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="p-3.5 pt-0">
+      <div class="flex items-center justify-between my-2 border-t border-ink-700/60 pt-2">
+        <span class="text-[11px] text-gray-400 font-medium">${s[0]}ml</span>
+        <span class="font-title font-bold text-gold-300 text-sm sm:text-base">${fmt(s[1])}</span>
+      </div>
+      <button onclick="addToCart(${p.id})" class="btn w-full py-2.5 text-xs flex items-center justify-center gap-1.5 shadow">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 7h12l1 13H5zM9 7a3 3 0 0 1 6 0"/></svg>
+        Agregar
+      </button>
+    </div>
+  </article>`;
+}
+
+// Selector de tamaño
+function setSize(id, idx) {
+  sel[id] = idx;
+  renderCat();
+  renderRails();
+}
+
+// Control de Filtros
+function toggleFilter(cat, val) {
+  if (F[cat].has(val)) F[cat].delete(val);
+  else F[cat].add(val);
+  updateActiveChips();
+  renderCat();
+  renderFilterBody();
+}
+
+function clearF() {
+  Object.keys(F).forEach(k => F[k].clear());
+  Q = '';
+  if ($('q')) $('q').value = '';
+  updateActiveChips();
+  renderCat();
+  renderFilterBody();
+}
+
+function setQ(v) {
+  Q = v.trim().toLowerCase();
+  renderCat();
+}
+
+function quickTipo(tipo) {
+  F.tipo.clear();
+  F.tipo.add(tipo);
+  updateActiveChips();
+  renderCat();
+  renderFilterBody();
+  window.location.hash = '#catalogo';
+}
+
+function updateActiveChips() {
+  const container = $('active');
+  let activeList = [];
+  Object.keys(F).forEach(key => {
+    F[key].forEach(val => activeList.push({ key, val }));
+  });
+
+  const fcount = $('fcount');
+  if (fcount) {
+    if (activeList.length > 0) {
+      fcount.textContent = activeList.length;
+      fcount.classList.remove('hidden');
+      fcount.classList.add('flex');
+    } else {
+      fcount.classList.add('hidden');
+      fcount.classList.remove('flex');
+    }
+  }
+
+  if (activeList.length === 0) {
+    container.innerHTML = '';
+    return;
+  }
+
+  container.innerHTML = `
+    <div class="flex items-center gap-1 text-xs text-gray-400 mr-2">Filtros aplicados:</div>
+    ${activeList.map(item => `
+      <span class="chip on text-xs flex items-center gap-1.5" onclick="toggleFilter('${item.key}', '${item.val}')">
+        ${item.val} <span class="text-[10px] opacity-75">✕</span>
+      </span>
+    `).join('')}
+    <button onclick="clearF()" class="text-xs text-gold-300 underline hover:text-white ml-2">Borrar filtros</button>
+  `;
+}
+
+// Filtrado de perfumes
+function getFilteredPerfumes() {
+  let list = P.filter(p => {
+    if (Q) {
+      const matchName = p.name.toLowerCase().includes(Q);
+      const matchBrand = p.brand.toLowerCase().includes(Q);
+      const matchNotes = p.notes.toLowerCase().includes(Q);
+      if (!matchName && !matchBrand && !matchNotes) return false;
+    }
+    if (F.tipo.size > 0 && !F.tipo.has(p.tipo)) return false;
+    if (F.gen.size > 0 && !F.gen.has(p.gen)) return false;
+    if (F.cal.size > 0 && !F.cal.has(p.q)) return false;
+    if (F.marca.size > 0 && !F.marca.has(p.brand)) return false;
+    if (F.cat.size > 0) {
+      const hasAnyCat = p.cats.some(c => F.cat.has(c));
+      if (!hasAnyCat) return false;
+    }
+    return true;
+  });
+
+  const sortVal = $('sort') ? $('sort').value : 'new';
+  if (sortVal === 'lo') {
+    list.sort((a,b) => {
+      const pa = a.sizes[sel[a.id] || (a.sizes.length-1)][1];
+      const pb = b.sizes[sel[b.id] || (b.sizes.length-1)][1];
+      return pa - pb;
+    });
+  } else if (sortVal === 'hi') {
+    list.sort((a,b) => {
+      const pa = a.sizes[sel[a.id] || (a.sizes.length-1)][1];
+      const pb = b.sizes[sel[b.id] || (b.sizes.length-1)][1];
+      return pb - pa;
+    });
+  }
+  return list;
+}
+
+function renderCat() {
+  const filtered = getFilteredPerfumes();
+  const grid = $('grid');
+  const count = $('rcount');
+
+  if (count) count.textContent = `Mostrando ${filtered.length} de ${P.length} perfumes disponibles`;
+
+  if (filtered.length === 0) {
+    grid.innerHTML = `
+      <div class="col-span-full py-16 text-center card p-8">
+        <p class="text-4xl mb-3">🔍</p>
+        <h4 class="font-title text-xl font-bold gold-text">No encontramos coincidencias</h4>
+        <p class="text-sm text-gray-400 mt-2">Prueba ajustando los filtros o realizando otra búsqueda.</p>
+        <button onclick="clearF()" class="btn px-6 py-2.5 text-xs mt-4">Restablecer filtros</button>
+      </div>`;
+    return;
+  }
+
+  grid.innerHTML = filtered.map(p => card(p, false)).join('');
+}
+
+// Rails de Destacados y Nichos
+function renderRails() {
+  const best = P.filter(p => [1, 2, 3, 5, 12, 8].includes(p.id));
+  const nicho = P.filter(p => p.tipo === 'Nicho');
+  if ($('rail-best')) $('rail-best').innerHTML = best.map(p => card(p, true)).join('');
+  if ($('rail-nicho')) $('rail-nicho').innerHTML = nicho.map(p => card(p, true)).join('');
+}
+
+// Drawer de Filtros
+function renderFilterBody() {
+  const fbody = $('fbody');
+  if (!fbody) return;
+
+  fbody.innerHTML = `
+    <div>
+      <h4 class="text-xs uppercase tracking-wider text-gold-300 font-semibold mb-3">Línea / Tipo</h4>
+      <div class="flex flex-wrap gap-2">
+        ${TIPOS.map(t => `<button class="chip ${F.tipo.has(t)?'on':''}" onclick="toggleFilter('tipo','${t}')">${t}</button>`).join('')}
+      </div>
+    </div>
+
+    <div>
+      <h4 class="text-xs uppercase tracking-wider text-gold-300 font-semibold mb-3">Calidad</h4>
+      <div class="flex flex-wrap gap-2">
+        ${CALS.map(c => `<button class="chip ${F.cal.has(c)?'on':''}" onclick="toggleFilter('cal','${c}')">${c}</button>`).join('')}
+      </div>
+    </div>
+
+    <div>
+      <h4 class="text-xs uppercase tracking-wider text-gold-300 font-semibold mb-3">Género</h4>
+      <div class="flex flex-wrap gap-2">
+        ${GENS.map(g => `<button class="chip ${F.gen.has(g)?'on':''}" onclick="toggleFilter('gen','${g}')">${g}</button>`).join('')}
+      </div>
+    </div>
+
+    <div>
+      <h4 class="text-xs uppercase tracking-wider text-gold-300 font-semibold mb-3">Ocasión y Estilo</h4>
+      <div class="flex flex-wrap gap-2 max-h-48 overflow-y-auto pr-1">
+        ${CATS.map(c => `<button class="chip ${F.cat.has(c)?'on':''}" onclick="toggleFilter('cat','${c}')">${c}</button>`).join('')}
+      </div>
+    </div>
+
+    <div>
+      <h4 class="text-xs uppercase tracking-wider text-gold-300 font-semibold mb-3">Marcas</h4>
+      <div class="flex flex-wrap gap-2 max-h-48 overflow-y-auto pr-1">
+        ${MARCAS.map(m => `<button class="chip ${F.marca.has(m)?'on':''}" onclick="toggleFilter('marca','${m}')">${m}</button>`).join('')}
+      </div>
+    </div>
+  `;
+}
+
+// Carrusel Hero
+const HEROES = [
+  {
+    tag: 'COLECCIÓN EXCLUSIVA 2026',
+    title: 'El Arte de la Alta Perfumería',
+    desc: 'Descubre los aromas más virales y distinguidos de Medio Oriente, casas de diseñador y perfumería nicho. Estela imponente y duración extrema.',
+    cta: 'Explorar Catálogo',
+    link: '#catalogo',
+    theme: 'from-amber-950/70 via-ink-900 to-ink-950'
+  },
+  {
+    tag: 'DECANTS FRACCIONADOS',
+    title: 'Oler Bien Es Para Todos',
+    desc: 'Lleva muestras de lujo de 5ml y 10ml antes de comprar la botella completa. Decants 100% auténticos fraccionados con la mayor pureza.',
+    cta: 'Ver Perfumes Árabes',
+    action: () => quickTipo('Árabe'),
+    theme: 'from-yellow-950/60 via-ink-900 to-ink-950'
+  },
+  {
+    tag: 'COMBOS Y PROMOCIONES',
+    title: 'Aroma Perfecto para Cada Ocasión',
+    desc: 'Combos dúo con descuento directo y envío prioritario a toda Colombia. Paga al recibir en tu puerta.',
+    cta: 'Ver Combos Exclusivos',
+    link: '#combos',
+    theme: 'from-stone-900 via-ink-900 to-ink-950'
+  }
+];
+
+function renderHero() {
+  const heroEl = $('hero');
+  const dotsEl = $('dots');
+  if (!heroEl) return;
+
+  heroEl.innerHTML = HEROES.map((h, idx) => `
+    <div class="w-full flex-shrink-0 p-6 sm:p-12 bg-gradient-to-r ${h.theme} flex flex-col justify-center">
+      <span class="text-xs tracking-widest font-bold text-gold-300 uppercase">${h.tag}</span>
+      <h1 class="font-title text-2xl sm:text-4xl md:text-5xl font-black mt-2 max-w-xl text-white leading-tight">${h.title}</h1>
+      <p class="text-sm sm:text-base text-gray-300 mt-3 max-w-lg leading-relaxed">${h.desc}</p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        ${h.link ? `
+          <a href="${h.link}" class="btn px-7 py-3 text-sm inline-block shadow-lg">${h.cta}</a>
+        ` : `
+          <button onclick="HEROES[${idx}].action()" class="btn px-7 py-3 text-sm shadow-lg">${h.cta}</button>
+        `}
+        <a href="#recomendador" class="border border-gold-500/40 text-gold-200 hover:bg-gold-500/10 rounded-xl px-5 py-3 text-sm font-semibold transition-colors">
+          Asesor Virtual
+        </a>
+      </div>
+    </div>
+  `).join('');
+
+  if (dotsEl) {
+    dotsEl.innerHTML = HEROES.map((_, i) => `
+      <button onclick="setHero(${i})" class="w-3 h-3 rounded-full transition-all ${i===heroI ? 'bg-gold-400 w-8' : 'bg-gray-600'}" aria-label="Ir a diapositiva ${i+1}"></button>
+    `).join('');
+  }
+}
+
+function setHero(index) {
+  heroI = index;
+  const heroEl = $('hero');
+  if (heroEl) heroEl.style.transform = `translateX(-${heroI * 100}%)`;
+  renderHeroDots();
+}
+
+function renderHeroDots() {
+  const dotsEl = $('dots');
+  if (!dotsEl) return;
+  dotsEl.querySelectorAll('button').forEach((b, i) => {
+    b.className = `w-3 h-3 rounded-full transition-all ${i===heroI ? 'bg-gold-400 w-8' : 'bg-gray-600'}`;
+  });
+}
+
+// Timer para auto-cambiar hero
+setInterval(() => {
+  heroI = (heroI + 1) % HEROES.length;
+  setHero(heroI);
+}, 6500);
+
+// Trust Badges
+function renderTrust() {
+  const items = [
+    { icon: '🚚', t: 'Envíos Nacionales', d: 'A todo Colombia seguro' },
+    { icon: '🛡️', t: 'Pago Seguro', d: 'Nequi o Contraentrega' },
+    { icon: '✨', t: 'Decants Genuinos', d: 'Muestras de alta gama' },
+    { icon: '⭐', t: 'Garantía Total', d: 'Estela y fijación extrema' }
+  ];
+  if ($('trust')) {
+    $('trust').innerHTML = items.map(it => `
+      <div class="card p-3.5 flex items-center gap-3">
+        <span class="text-2xl">${it.icon}</span>
+        <div>
+          <b class="text-xs text-gold-200 block">${it.t}</b>
+          <span class="text-[11px] text-gray-400 leading-none">${it.d}</span>
+        </div>
+      </div>
+    `).join('');
+  }
+}
+
+// Calidades Cards
+function renderCalidades() {
+  const calGrid = $('cal-grid');
+  if (!calGrid) return;
+
+  const data = [
+    {
+      q: 'Original',
+      title: 'Perfumes Originales & Decants',
+      desc: 'Botellas 100% selladas de fábrica y decants fraccionados directamente de frascos originales. La máxima pureza y experiencia olfativa.',
+      dur: '8 a 14+ horas de fijación',
+      price: 'Desde $12.000 (decant)',
+      tag: 'Garantía 100% genuino'
+    },
+    {
+      q: '1:1',
+      title: 'Inspiración 1:1 Calidad Triple A',
+      desc: 'Réplicas de primer nivel que emulan frasco, empaque, notas olfativas y estela de las casas más costosas del mundo.',
+      dur: '6 a 10 horas de fijación',
+      price: 'Excelente relación valor',
+      tag: 'Alta similitud'
+    },
+    {
+      q: 'Preparado',
+      title: 'Preparados de Alta Concentración',
+      desc: 'Elaborados artesanalmente con esencias puras francesas al 33% de concentración. Estela potente, gran durabilidad y el precio más accesible.',
+      dur: '8 a 12 horas de fijación',
+      price: 'Desde $25.000 (30ml)',
+      tag: 'Esencia pura 33%'
+    }
+  ];
+
+  calGrid.innerHTML = data.map(d => `
+    <div class="card p-6 flex flex-col justify-between">
+      <div>
+        <div class="flex items-center justify-between mb-3">
+          <span class="chip on text-xs">${d.q}</span>
+          <span class="text-[11px] text-gray-400">${d.dur}</span>
+        </div>
+        <h3 class="font-title font-bold text-lg text-white">${d.title}</h3>
+        <p class="text-xs text-gray-400 mt-2 leading-relaxed">${d.desc}</p>
+        <div class="mt-4 p-2.5 rounded-xl bg-ink-800 border border-gold-500/15">
+          <p class="text-[11px] text-gold-300 font-semibold">${d.tag}</p>
+          <p class="text-xs text-gray-300 mt-0.5">${d.price}</p>
+        </div>
+      </div>
+      <button onclick="filterByQuality('${d.q}')" class="btn w-full py-2.5 text-xs mt-5">
+        Ver perfumes ${d.q}
+      </button>
+    </div>
+  `).join('');
+}
+
+function filterByQuality(q) {
+  F.cal.clear();
+  F.cal.add(q);
+  updateActiveChips();
+  renderCat();
+  renderFilterBody();
+  window.location.hash = '#catalogo';
+}
+
+// Combos
+function renderCombos() {
+  const el = $('combo-grid');
+  if (!el) return;
+
+  const combos = [
+    {
+      id: 'c1',
+      title: 'Combo Dúo Seducción Árabe',
+      desc: 'Los dos reyes indiscutibles de la perfumería árabe: Khamrah (100ml) para frío/citas + Hawas (100ml) para calor y proyección extrema.',
+      items: 'Khamrah 100ml + Hawas 100ml',
+      oldPrice: 370000,
+      price: 330000,
+      save: 40000,
+      badge: 'Más Vendido',
+      pids: [1, 2]
+    },
+    {
+      id: 'c2',
+      title: 'Pack Elite 4 Decants de Lujo (10ml c/u)',
+      desc: 'La colección definitiva en formato decant de 10ml: Sauvage Elixir, Le Male Elixir, Baccarat Rouge 540 y Layton.',
+      items: '4 frascos de 10ml con atomizador de lujo',
+      oldPrice: 135000,
+      price: 115000,
+      save: 20000,
+      badge: 'Ahorro Especial',
+      isPackDecant: true
+    }
+  ];
+
+  el.innerHTML = combos.map(c => `
+    <div class="card p-6 flex flex-col justify-between border-gold-500/30">
+      <div>
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-bold text-black bg-gold-400 px-3 py-0.5 rounded-full uppercase tracking-wider">${c.badge}</span>
+          <span class="text-xs text-emerald-400 font-semibold">Ahorras ${fmt(c.save)}</span>
+        </div>
+        <h3 class="font-title font-bold text-xl text-white">${c.title}</h3>
+        <p class="text-xs text-gray-400 mt-2 leading-relaxed">${c.desc}</p>
+        <div class="mt-3 text-xs text-gold-200 bg-ink-800/80 p-2.5 rounded-xl border border-gold-500/20">
+          📦 <b>Incluye:</b> ${c.items}
+        </div>
+      </div>
+      <div class="mt-6 pt-4 border-t border-ink-700/60 flex items-center justify-between gap-4">
+        <div>
+          <span class="text-xs text-gray-500 line-through block">${fmt(c.oldPrice)}</span>
+          <span class="font-title text-xl font-bold text-gold-300">${fmt(c.price)}</span>
+        </div>
+        <button onclick="addCombo('${c.title}', ${c.price})" class="btn px-5 py-2.5 text-xs shadow-lg">
+          Agregar combo
+        </button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function addCombo(title, price) {
+  const existing = cart.find(it => it.name === title);
+  if (existing) {
+    existing.qty += 1;
+  } else {
+    cart.push({
+      id: 'combo-' + Date.now(),
+      name: title,
+      brand: 'Scent Combo',
+      size: 'Especial',
+      price: price,
+      qty: 1
+    });
+  }
+  updateCartUI();
+  toggleCart(true);
+}
+
+// Asesor / Recomendador
+const QUIZ_OPTS = [
+  { label: '🌙 Citas / Romance', recId: 1, why: 'Khamrah es una bomba cálida y gourmand de canela, dátiles y praliné que genera cumplidos inmediatos.' },
+  { label: '💼 Oficina / Diario', recId: 7, why: 'Y Eau de Parfum ofrece un frescor elegante, limpio y profesional con manzana crujiente y salvia.' },
+  { label: '🎉 Fiesta / Noche', recId: 5, why: 'Sauvage Elixir tiene una estela magnética y nuclear que se hace notar por encima de cualquier otro aroma.' },
+  { label: '☀️ Calor / Gimnasio', recId: 2, why: 'Hawas for Him combina notas acuáticas marinas con ciruela dulce, refrescante e hiper duradero.' },
+  { label: '👑 Lujo / Evento Especial', recId: 8, why: 'Baccarat Rouge 540 es la máxima expresión de sofisticación con azafrán resinoso y dulzura de alta gama.' }
+];
+
+let curQuizRec = null;
+
+function renderQuiz() {
+  const quizEl = $('quiz');
+  if (!quizEl) return;
+
+  quizEl.innerHTML = QUIZ_OPTS.map((opt, i) => `
+    <button onclick="selectQuiz(${i})" class="chip py-2 px-4 text-xs font-semibold hover:border-gold-400">
+      ${opt.label}
+    </button>
+  `).join('');
+}
+
+function selectQuiz(index) {
+  const opt = QUIZ_OPTS[index];
+  const p = P.find(x => x.id === opt.recId);
+  if (!p) return;
+
+  curQuizRec = p;
+  const resEl = $('qres');
+  const nameEl = $('qn');
+  const descEl = $('qd');
+  const priceEl = $('qp');
+  const btnEl = $('qb');
+
+  nameEl.textContent = `${p.name} — ${p.brand} (${p.q})`;
+  descEl.textContent = `${opt.why} Notas dominantes: ${p.notes}.`;
+  
+  const lastSize = p.sizes[p.sizes.length - 1];
+  priceEl.textContent = `${lastSize[0]}ml · ${fmt(lastSize[1])}`;
+
+  btnEl.onclick = () => {
+    addToCart(p.id);
+    toggleCart(true);
+  };
+
+  resEl.classList.remove('hidden');
+  resEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+// Ticker con animación continua
+function renderTicker() {
+  const phrases = [
+    '🚚 ENVÍO GRATIS en compras superiores a $250.000 COP',
+    '✨ DECANTS Y BOTELLAS 100% ORIGINALES',
+    '⚡ ENVÍOS A TODA COLOMBIA CON PAGO CONTRAENTREGA',
+    '💎 CALIDAD 1:1, ÁRABES VIRALES Y FRAGANCIAS NICHO',
+    '📱 ASESORÍA PERSONALIZADA EN VIVO POR WHATSAPP'
+  ];
+  const text = phrases.map(ph => `<span class="inline-flex items-center gap-2 mx-6"><span>${ph}</span></span>`).join('');
+  // Duplicar texto para el bucle continuo del ticker
+  if ($('ticker')) $('ticker').innerHTML = text + text;
+}
+
+// Quick Tabs en Catálogo
+function renderQuickTabs() {
+  const tabs = [
+    { label: 'Todos', act: () => clearF() },
+    { label: 'Árabes', act: () => quickTipo('Árabe') },
+    { label: 'Diseñador', act: () => quickTipo('Diseñador') },
+    { label: 'Nichos', act: () => quickTipo('Nicho') },
+    { label: 'Hombre', act: () => { F.gen.clear(); F.gen.add('Masculino'); updateActiveChips(); renderCat(); renderFilterBody(); } },
+    { label: 'Mujer', act: () => { F.gen.clear(); F.gen.add('Femenino'); updateActiveChips(); renderCat(); renderFilterBody(); } },
+    { label: 'Unisex', act: () => { F.gen.clear(); F.gen.add('Unisex'); updateActiveChips(); renderCat(); renderFilterBody(); } }
+  ];
+  if ($('qtabs')) {
+    $('qtabs').innerHTML = tabs.map(t => `
+      <button onclick="(${t.act.toString()})()" class="chip text-xs hover:border-gold-400">
+        ${t.label}
+      </button>
+    `).join('');
+  }
+}
+
+// Sistema del Carrito
+function addToCart(pId) {
+  const p = P.find(x => x.id === pId);
+  if (!p) return;
+  const sIdx = sel[pId] !== undefined ? sel[pId] : (p.sizes.length - 1);
+  const sizeObj = p.sizes[sIdx] || p.sizes[0];
+
+  const cartItemId = `${p.id}-${sizeObj[0]}`;
+  const existing = cart.find(it => it.cartId === cartItemId);
+
+  if (existing) {
+    existing.qty += 1;
+  } else {
+    cart.push({
+      cartId: cartItemId,
+      id: p.id,
+      name: p.name,
+      brand: p.brand,
+      size: sizeObj[0],
+      price: sizeObj[1],
+      q: p.q,
+      qty: 1
+    });
+  }
+
+  updateCartUI();
+  toggleCart(true);
+}
+
+function updateCartQty(cartId, delta) {
+  const idx = cart.findIndex(it => (it.cartId || it.id) === cartId);
+  if (idx < 0) return;
+  cart[idx].qty += delta;
+  if (cart[idx].qty <= 0) {
+    cart.splice(idx, 1);
+  }
+  updateCartUI();
+}
+
+function removeCartItem(cartId) {
+  cart = cart.filter(it => (it.cartId || it.id) !== cartId);
+  updateCartUI();
+}
+
+function updateCartUI() {
+  saveCart();
+  const totalCount = cart.reduce((sum, it) => sum + it.qty, 0);
+  const totalAmount = cart.reduce((sum, it) => sum + (it.price * it.qty), 0);
+
+  if ($('badge')) $('badge').textContent = totalCount;
+  if ($('botc')) $('botc').textContent = totalCount;
+  if ($('tot')) $('tot').textContent = fmt(totalAmount);
+
+  // Barra de progreso envío gratis
+  const goalEl = $('goal');
+  const barEl = $('bar');
+  if (goalEl && barEl) {
+    if (totalAmount >= GOAL) {
+      goalEl.innerHTML = `🎉 <b>¡Felicidades!</b> Calificas para <b>ENVÍO GRATIS</b>.`;
+      barEl.style.width = '100%';
+    } else {
+      const diff = GOAL - totalAmount;
+      const pct = Math.min(100, Math.round((totalAmount / GOAL) * 100));
+      goalEl.innerHTML = `Agrega <b>${fmt(diff)}</b> más para obtener <b>ENVÍO GRATIS</b>`;
+      barEl.style.width = `${pct}%`;
+    }
+  }
+
+  // Lista de items
+  const itemsEl = $('items');
+  if (!itemsEl) return;
+
+  if (cart.length === 0) {
+    itemsEl.innerHTML = `
+      <div class="py-12 text-center text-gray-400">
+        <svg class="w-12 h-12 mx-auto text-gray-600 mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M6 7h12l1 13H5zM9 7a3 3 0 0 1 6 0"/></svg>
+        <p class="font-title text-base text-gray-300">Tu carrito está vacío</p>
+        <p class="text-xs text-gray-500 mt-1">Explora nuestro catálogo y agrega tus perfumes favoritos.</p>
+        <button onclick="closeAll()" class="btn px-5 py-2 text-xs mt-4">Ver perfumes</button>
+      </div>`;
+    return;
+  }
+
+  itemsEl.innerHTML = cart.map(it => {
+    const key = it.cartId || it.id;
+    return `
+      <div class="p-3 rounded-xl bg-ink-800 border border-gold-500/15 flex items-center justify-between gap-3">
+        <div class="flex-1 min-w-0">
+          <p class="text-[10px] uppercase tracking-wider text-gold-400 truncate">${it.brand}</p>
+          <h4 class="font-title font-bold text-xs sm:text-sm text-white truncate">${it.name}</h4>
+          <p class="text-[11px] text-gray-400">${it.size}ml · <b class="text-gold-200">${fmt(it.price)}</b></p>
+        </div>
+        <div class="flex items-center gap-2">
+          <div class="flex items-center border border-ink-600 rounded-lg overflow-hidden bg-ink-900">
+            <button onclick="updateCartQty('${key}', -1)" class="px-2 py-1 text-xs text-gray-300 hover:bg-ink-700">-</button>
+            <span class="px-2 text-xs font-bold text-white">${it.qty}</span>
+            <button onclick="updateCartQty('${key}', 1)" class="px-2 py-1 text-xs text-gray-300 hover:bg-ink-700">+</button>
+          </div>
+          <button onclick="removeCartItem('${key}')" class="text-gray-400 hover:text-red-400 p-1" title="Eliminar">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+          </button>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+// Finalizar pedido por WhatsApp
+function checkout() {
+  if (cart.length === 0) {
+    alert("Tu carrito está vacío. ¡Elige tus fragancias antes de continuar!");
+    return;
+  }
+
+  const lines = cart.map(it => {
+    return `• ${it.qty}x ${it.name} (${it.brand}) - ${it.size}ml: ${fmt(it.price * it.qty)}`;
+  });
+  const total = cart.reduce((sum, it) => sum + (it.price * it.qty), 0);
+  const freeShip = total >= GOAL ? "✅ Aplica para ENVÍO GRATIS" : "📦 Envío estándar nacional";
+
+  const msg = `¡Hola Scent_Perfums! 👋 Deseo realizar el siguiente pedido:\n\n${lines.join('\n')}\n\n💰 *Subtotal:* ${fmt(total)}\n🚚 *Envío:* ${freeShip}\n\n¿Me confirman disponibilidad y medios de pago (Nequi, Bancolombia o Contraentrega)? Gracias.`;
+  
+  // Reemplaza con tu número de WhatsApp real de Colombia (código país 57)
+  const phone = "573000000000";
+  const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+  window.open(url, '_blank');
+}
+
+// Modales y Drawers
+function toggleCart(show) {
+  const c = $('cart');
+  const ov = $('ov');
+  if (show) {
+    c.classList.remove('translate-x-full');
+    ov.classList.remove('hidden');
+    updateCartUI();
+  } else {
+    c.classList.add('translate-x-full');
+    ov.classList.add('hidden');
+  }
+}
+
+function toggleFilters(show) {
+  const f = $('fil');
+  const ov = $('ov');
+  if (show) {
+    renderFilterBody();
+    f.classList.remove('-translate-x-full');
+    ov.classList.remove('hidden');
+  } else {
+    f.classList.add('-translate-x-full');
+    ov.classList.add('hidden');
+  }
+}
+
+function toggleMenu(show) {
+  const m = $('menu');
+  if (show) m.classList.remove('hidden'), m.classList.add('flex');
+  else m.classList.add('hidden'), m.classList.remove('flex');
+}
+
+function toggleBot() {
+  const b = $('bot');
+  b.classList.toggle('hidden');
+}
+
+function openModal(id) {
+  const el = $(id);
+  if (!el) return;
+  el.classList.remove('hidden');
+  el.classList.add('flex');
+  if (id === 'sm') {
+    const mq = $('mq');
+    if (mq) {
+      mq.value = '';
+      mq.focus();
+      modalSearch();
+    }
+  }
+}
+
+function closeAll() {
+  toggleCart(false);
+  toggleFilters(false);
+  toggleMenu(false);
+  const sm = $('sm');
+  if (sm) {
+    sm.classList.add('hidden');
+    sm.classList.remove('flex');
+  }
+  $('ov').classList.add('hidden');
+}
+
+// Búsqueda en modal
+function modalSearch() {
+  const q = ($('mq').value || '').trim().toLowerCase();
+  const resEl = $('mres');
+  if (!resEl) return;
+
+  const results = P.filter(p => {
+    if (!q) return true;
+    return p.name.toLowerCase().includes(q) ||
+           p.brand.toLowerCase().includes(q) ||
+           p.notes.toLowerCase().includes(q) ||
+           p.tipo.toLowerCase().includes(q);
+  }).slice(0, 6);
+
+  if (results.length === 0) {
+    resEl.innerHTML = `<p class="text-xs text-gray-500 py-4 text-center">No encontramos coincidencias para "${q}".</p>`;
+    return;
+  }
+
+  resEl.innerHTML = results.map(p => {
+    const s = p.sizes[p.sizes.length - 1];
+    return `
+      <div class="p-2.5 rounded-xl bg-ink-900 border border-ink-700 flex items-center justify-between gap-3 hover:border-gold-500/40 transition-colors">
+        <div>
+          <span class="text-[10px] text-gold-300 font-semibold">${p.brand} · ${p.q}</span>
+          <h4 class="font-title text-sm text-white font-bold leading-tight">${p.name}</h4>
+          <span class="text-xs text-gold-200 font-medium">${fmt(s[1])}</span>
+        </div>
+        <button onclick="closeAll();addToCart(${p.id});" class="btn px-3 py-1.5 text-xs">
+          Agregar
+        </button>
+      </div>
+    `;
+  }).join('');
+}
+
+// Inicialización de la tienda
+window.addEventListener('DOMContentLoaded', () => {
+  renderTicker();
+  renderHero();
+  renderTrust();
+  renderCalidades();
+  renderRails();
+  renderQuickTabs();
+  renderCat();
+  renderCombos();
+  renderQuiz();
+  updateCartUI();
+});
+</script>
+</body>
+</html>
